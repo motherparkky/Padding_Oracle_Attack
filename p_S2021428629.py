@@ -80,6 +80,7 @@ def recover_block(C0_bytes, C1_bytes):
                 ok = pad_oracle(C0_try_hex, C1_hex)
             except Exception as e:
                 print("Oracle call error:", e)
+                print("Launch bridge process if not running.\nType > java -cp pad_oracle.jar:bcprov-jdk15-130.jar:python_interface_v1_2.jar python_interface_v1_2")
                 sys.exit(1)
             if normalize_oracle_response(ok) == 1:
                 intermediate_byte = C0[idx] ^ guess
